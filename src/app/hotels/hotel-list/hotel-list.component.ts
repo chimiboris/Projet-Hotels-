@@ -14,16 +14,19 @@ export class HotelListComponent implements OnInit {
   public showBadge: boolean = true;
   public filteredHotels: IHotel[];
   public receivedRating: string;
-  _hotelFilter = 'mot';
+
+  private _hotelFilterVille = 'mot';
+  private _hotelFilterQuartier = '';
+  private _hotelFilterType = '';
+  private _categorie = '';
 
   public errorMsg: string;
 
+  public hotel: IHotel;
+  public pageTitle: string
+  //public choixCategorie: string;
 
-  // Methode longue
-  // private _hotelListService;
-  // constructor(hotelListService: HotelListService) {
-  //   this._hotelListService = hotelListService;
-  // }
+  
 
   // racourci typescript
   constructor(private hotelListService: HotelListService){}
@@ -37,20 +40,21 @@ export class HotelListComponent implements OnInit {
       },
       error: err => this.errorMsg = err
     });
-    this.hotelFilter = '';
+
+   
+    
   }
+
+  // public categorieChoice(categorieChoix: string):void{
+
+  //   this.choixCategorie = categorieChoix;
+  //   if(this.hotel.categorie == 'meubles'){
+
+  //   }
+  // }
 
   public toggleIsNewBadge(): void {
     this.showBadge = !this.showBadge;
-  }
-
-  get hotelFilter(): string {
-    return this._hotelFilter;
-  }
-
-  set hotelFilter(filter: string) {
-    this._hotelFilter = filter;
-    this.filteredHotels = this.hotelFilter ? this.filterHotels(this.hotelFilter) : this.hotels;
   }
 
   public receiveRatingClick(message: string): void {
@@ -59,15 +63,91 @@ export class HotelListComponent implements OnInit {
   }
 
 
-  private filterHotels(criteria: string): IHotel[] {
-    criteria = criteria.toLocaleLowerCase();
+  public get hotelFilterVille(): string{
+    return this._hotelFilterVille;
+   }
+   public get hotelFilterQuartier(): string{
+    return this._hotelFilterQuartier;
+   }
+   public get hotelFilterType(): string{
+    return this._hotelFilterType;
+   }
+  //  public get categorie(): string{
+  //   return this._categorie;
+  //  }
 
-    const res = this.hotels.filter(
-      (hotel: IHotel) => hotel.hotelName.toLocaleLowerCase().indexOf(criteria) !== -1
-    );
+  
+  
+  public set hotelFilterVille(filter: string){
+    this._hotelFilterVille = filter;
+    this.filteredHotels = this.hotelFilterVille ? this.filterHotelsVille(this.hotelFilterVille, this.hotelFilterQuartier, this.hotelFilterType) : this.hotels;
 
-    return res;
-
+    if (this._hotelFilterVille) {
+      this.updatePageTitle(this._hotelFilterVille);
+    }else{
+      this.pageTitle = '';
+    }
   }
+  public set hotelFilterQuartier(filter: string){
+    this._hotelFilterQuartier = filter;
+    this.filteredHotels = this.hotelFilterQuartier ? this.filterHotelsVille(this.hotelFilterVille, this.hotelFilterQuartier, this.hotelFilterType) : this.hotels;
+  }
+  public set hotelFilterType(filter: string){
+    this._hotelFilterType = filter;
+    this.filteredHotels = this.hotelFilterType ? this.filterHotelsVille(this.hotelFilterVille, this.hotelFilterQuartier, this.hotelFilterType) : this.hotels;
+  }
+  // public set hotelFilterCategorie(filter: string){
+  //   this._categorie = filter;
+  //   this.filteredHotels = this.hotelFilterCategorie ? this.filterHotelsVille(this.hotelFilterVille, this.hotelFilterQuartier, this.hotelFilterType) : this.hotels;
+
+  // }
+  
+  
+  updatePageTitle(cityName: string): void {
+    this.pageTitle = `Logements à ${cityName}`;
+  }
+
+  
+  private filterHotelsVille(criteriaVille: string, criteriaQuartier: string, criteriaType:string): IHotel[]{
+
+    criteriaVille = criteriaVille.toLocaleLowerCase();
+    criteriaQuartier = criteriaQuartier.toLocaleLowerCase();
+    criteriaType = criteriaType.toLocaleLowerCase();
+   // criteriaCategorie = criteriaCategorie.toLocaleLowerCase();
+
+  
+    let res = this.hotels.filter(
+      (hotel: IHotel) => hotel.cityName.toLocaleLowerCase().indexOf(criteriaVille) !== -1
+      ).filter(
+        (hotel: IHotel) => hotel.quartier.toLocaleLowerCase().indexOf(criteriaQuartier) !== -1
+      ).filter(
+        (hotel: IHotel) => hotel.type.toLocaleLowerCase().indexOf(criteriaType) !== -1
+        // ).filter(
+        //   (hotel: IHotel) => hotel.categorie.toLocaleLowerCase().indexOf(criteriaCategorie) !== -1
+           );
+    return res;
+    
+  }
+
+  // private filterHotelsQuartier(criteriaQuartier: string): IHotel[]{
+
+  //   criteriaQuartier = criteriaQuartier.toLocaleLowerCase();
+  
+  //   const res = this.hotels.filter(
+  //     (hotel: IHotel) => hotel.quartier.toLocaleLowerCase().indexOf(criteriaQuartier) !== -1
+  //     );
+
+  //   return res;
+  // }
+  // private filterHotelsType(criteriaType: string): IHotel[]{
+
+  //   criteriaType = criteriaType.toLocaleLowerCase();
+  
+  //   const res = this.hotels.filter(
+  //     (hotel: IHotel) => hotel.type.toLocaleLowerCase().indexOf(criteriaType) !== -1
+  //     );
+
+  //   return res;
+  // }
 
 }

@@ -63,8 +63,20 @@ export class HotelListService {
       hotelName: null,
       description: null,
       price: null,
+      numberOne: null,
+      numberTwo: null,
       rating: null,
-      imageUrl: null
+      imageUrl: null,
+      imageUrl1: null,
+      imageUrl2: null,
+      imageUrl3: null,
+      imageUrl4: null,
+      cityName: null,
+      quartier: null,
+      type: null,
+      categorie: null,
+      numerowhatsappOne: null,
+      numerowhatsappTwo: null
     };
   }
 

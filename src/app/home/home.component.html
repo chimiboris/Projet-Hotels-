@@ -1,1 +1,124 @@
-<p>home works!</p>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspect Sombre</title>
+
+</head>
+<body>
+
+<div class="image-sombre">
+  <img src="/assets/img/pexels-10.jpg" alt="Votre Image">
+  <div class="overlay"></div>
+</div>
+
+<div class="div-sombre">
+  <p>Votre contenu ici</p>
+</div>
+
+</body>
+</html> -->
+
+
+<div class="container bg-light my-3 ">
+    <section class="one mb-5">
+        <div class="image-container">
+            <form class="overlay-form bg-light ">
+                <div class="card-header text-black text-center "><h2><b>Chercher un logement en fonction de vos préférences</b></h2></div>
+                <br>
+                <div class="text-center ">Trouvez un logement en fonction des catégories, et par la suite en fonction de votre choix de ville, 
+                    de quartier et de type de logement !</div>
+                    <br>
+                <div class="card-footer  d-flex justify-content-between ">
+                
+                    <a
+                        class="nav-link"
+                        [routerLink]="['/logements_meublés']"
+                        [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                        <h3>Meublés</h3>
+                    </a>
+                        
+                    <a
+                        class="nav-link"
+                        [routerLink]="['/logements_non_meublés']"
+                        [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                        <h3>Non meublés</h3>
+                    </a>        
+                </div>
+            </form> 
+        </div>
+    </section>
+    
+    <section class="two row mt-3 pt-5">
+        <div class="col-md-6">
+            <h2 class="text-center "><b>Comment trouver un logement qui rempli tous les critères 
+                de vos besoins sur MA Piol ?</b></h2>
+                <ol>
+                    <li>Je recherche mon logement en fonction de la catégorie (meublés ou non meublés), 
+                        puis en fonction des villes, des quartier et des type de logements (appartements, chambres ou studios)</li>
+                    <li>J'entre en contact avec le proriétaire du logement</li>
+                    <li>J'obtiens mon logement</li>
+                </ol>
+        </div>
+        <div class="col-md-6 mt-4">
+            <img class="img-fluid " src="/assets/img/pexels-5.jpg"/>
+        </div>
+    </section>
+
+    <section class="three mt-5">
+        <h2 class="text-center bg-info p-3 text-white "><b>Trouver votre logement maintenant !</b></h2>
+        <br>
+        <div class="d-flex px-2 ">
+            <div class="col-md-6 container1">
+                <a
+                        class="nav-link non-meubles"
+                        [routerLink]="['/logements_non_meublés']"
+                        [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                    <div class="sombre">
+                        <img class="img-fluid" src="/assets/img/pexels-10.jpg"/>
+                    </div>
+                        
+                    <div class="text-initial sombre">
+                        <h2 class="text-center ">Non</h2>
+                        <h2 class="text-center">meublés</h2>
+                    </div>
+                    <div class="text-alternatif">
+                        <h2 class="text-center texte">Consulter</h2>
+                    </div>
+                    
+                </a>            
+            </div>        
+            <div class="col-md-6 container1">
+                <a
+                        class="nav-link meubles"
+                        [routerLink]="['/logements_meublés']"
+                        [routerLinkActive]="['active']"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                    <div class="sombre">
+                        <img class="img-fluid" src="/assets/img/pexels-3.jpg"/>
+                    </div>
+                        
+                    <div class="text-initial sombre">
+                        <h2 class="text-center">Meublés</h2>
+                    </div>
+                    <div class="text-alternatif">
+                        <h2 class="text-center texte">Consulter</h2>
+                    </div>
+                    </a>
+            </div>
+        </div>
+    </section>
+    
+  </div>
+ 
+
+ 

@@ -28,12 +28,63 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
       minlength: 'Le nom de l\'hôtel doit comporter au moins trois caractères.',
       maxlength: 'Le nom de l\'hôtel ne peut pas dépasser 50 caractères.'
     },
+    cityName: {
+      required: 'Le nom de la ville est obligatoire.',
+      //minlength: 'Le nom de l\'hôtel doit comporter au moins trois caractères.',
+      //maxlength: 'Le nom de l\'hôtel ne peut pas dépasser 50 caractères.'
+    },
+    quartier: {
+      required: 'Le nom du quartier est obligatoire.',
+      minlength: 'Le nom du quartier doit comporter au moins trois caractères.',
+      maxlength: 'Le nom du quartier ne peut pas dépasser 50 caractères.'
+    },
+    type: {
+      required: 'Le type de logement est obligatoire.',
+      //minlength: 'Le nom de l\'hôtel doit comporter au moins trois caractères.',
+      //maxlength: 'Le nom de l\'hôtel ne peut pas dépasser 50 caractères.'
+    },
+    categorie: {
+      required: 'La categorie du logement est obligatoire.',
+      //minlength: 'Le nom de l\'hôtel doit comporter au moins trois caractères.',
+      //maxlength: 'Le nom de l\'hôtel ne peut pas dépasser 50 caractères.'
+    },
     price: {
-      required: 'le prix de l\'hôtel est obligatoire.',
-      pattern: 'Veuillez entrer un nombre svp.'
+      required: 'le prix du logement est obligatoire.',
+      pattern: 'Veuillez entrer un prix svp.'
+    },
+    numberOne: {
+      required: 'le numéro du logement est obligatoire.',
+      pattern: 'Veuillez entrer un numéro svp.'
+    },
+    numberTwo: {
+      required: 'le numéro du logement est obligatoire.',
+      pattern: 'Veuillez entrer un numéro svp.'
+    },
+    imageUrl: {
+      required: 'cette image est obligatoire.',
+      pattern: 'Veuillez entrer une image svp.'
+    },
+    imageUrl1: {
+      required: 'cette image est obligatoire.',
+      pattern: 'Veuillez entrer une image svp.'
+    },
+    imageUrl2: {
+      required: 'cette image est obligatoire.',
+      pattern: 'Veuillez entrer une image svp.'
+    },
+    imageUrl3: {
+      required: 'cette image est obligatoire.',
+      pattern: 'Veuillez entrer une image svp.'
+    },
+    imageUrl4: {
+      required: 'cette image est obligatoire.',
+      pattern: 'Veuillez entrer une image svp.'
     },
     rating: {
       range: 'Donnez une note à l\'hôtel entre 1 (le plus bas) et 5 (le plus élevé).'
+    },
+    description: {
+      required: 'cette description est obligattoire'
     }
   };
   public hotel: IHotel;
@@ -49,6 +100,7 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
     private hotelService: HotelListService
 
   ) { }
+
 
   ngOnInit(): void {
     this.globalGenericValidator = new GenericGlobalValidator(this.validationMessages);
@@ -72,18 +124,110 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
           Validators.pattern(/^-?(0|[1-9]\d*)?$/)
         ]
       ],
+      numberOne: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        ]
+      ],
+      numberTwo: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        ]
+      ],
+      cityName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      quartier: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      type: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      
+      categorie: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      numerowhatsappOne: [''],
+      numerowhatsappTwo: [''],
+      imageUrl: [
+        '',
+        [
+          Validators.required,
+          //Validators.minLength(3),
+          //Validators.maxLength(50)
+        ]
+      ],
+      imageUrl1: [
+        '',
+        [
+          Validators.required,
+          //Validators.minLength(3),
+          //Validators.maxLength(50)
+        ]
+      ],
+      imageUrl2: [
+        '',
+        [
+          Validators.required,
+          //Validators.minLength(3),
+          //Validators.maxLength(50)
+        ]
+      ],
+      imageUrl3: [
+        '',
+        [
+          Validators.required,
+          //Validators.minLength(3),
+          //Validators.maxLength(50)
+        ]
+      ],
+      imageUrl4: [
+        '',
+        [
+          Validators.required,
+          //Validators.minLength(3),
+          //Validators.maxLength(50)
+        ]
+      ],
       rating: ['', NumberValidators.range(1, 5)],
       tags: this.fb.array([]),
-      description: ''
+      description: ['', Validators.required]
+      
     });
 
     this.route.paramMap.subscribe(params => {
       const id = +params.get('id');
 
-      this.getSelectedHotel(id);
+     this.getSelectedHotel(id);
     })
+    
   }
 
+  
   ngAfterViewInit() {
     // without RxJS => changeDetection Error
     // this.formErrors = this.globalGenericValidator.createErrorMessages(this.hotelForm);
@@ -106,16 +250,33 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
     this.hotel = hotel;
 
     if (this.hotel.id === 0) {
-      this.pageTitle = 'Créer un hotel';
+      this.pageTitle = 'Ajouter un logement';
     } else {
-      this.pageTitle = `Modifier l\'hotel ${this.hotel.hotelName}`;
+      this.pageTitle = `Modifier le logement ${this.hotel.hotelName}`;
     }
+
+    // Convertir les champs numero1 et numero2 en nombres
+    // this.hotel.numero1 = +this.hotel.numero1;
+    // this.hotel.numero2 = +this.hotel.numero2;
 
     this.hotelForm.patchValue({
       hotelName: this.hotel.hotelName,
       price: this.hotel.price,
-      rating: this.hotel.rating,
       description: this.hotel.description,
+      numberOne: this.hotel.numberOne,
+      numberTwo: this.hotel.numberTwo,
+      cityName: this.hotel.cityName,
+      quartier: this.hotel.quartier,
+      type: this.hotel.type,
+      categorie: this.hotel.categorie,
+      imageUrl: this.hotel.imageUrl,
+      imageUrl1: this.hotel.imageUrl1,
+      imageUrl2: this.hotel.imageUrl2,
+      imageUrl3: this.hotel.imageUrl3,
+      imageUrl4: this.hotel.imageUrl4,
+      numerowhatsappOne: this.hotel.numerowhatsappOne,
+      numerowhatsappTwo: this.hotel.numerowhatsappTwo,
+      rating: this.hotel.rating
     });
     this.hotelForm.setControl('tags', this.fb.array(this.hotel.tags || []));
   }
@@ -186,7 +347,7 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
 
   public saveCompleted(): void {
     this.hotelForm.reset();
-    this.router.navigate(['/hotels']);
+    this.router.navigate(['/logements']);
   }
 
   public validateForm(): void {

@@ -1,0 +1,154 @@
+<div class="container">
+    <!-- <h3>Liste de logements</h3> -->
+  
+    <!-- <button (click)="toggleIsNewBadge()" class="btn btn-info mr-0 d-flex">
+      <span class="material-icons">
+        {{ showBadge ? "visibility_off" : "visibility" }}
+      </span>
+      <span class="ml-2"> {{ showBadge ? "cacher" : "afficher" }} nouveau </span>
+    </button> -->
+    <hr />
+  
+    
+   
+      <h1 class="text-center bg-info p-2 text-white "><b>Logements meublés {{ pageTitle }}</b></h1>
+      <h2 class="text-center">Trouvez rapidement votre logement dans les zones de tries ci-dessous !</h2>
+      <div class="row d-flex">
+        <div class="col-md-4 form-group">
+          <div class="row flex-sm-nowrap m-xl-2 ">
+            <div>
+              <div class="input-group mb-3 flex-lg-nowrap mx-xl-5">
+                <label class="input-group-text bg-info text-white" for="inputGroupSelect01">Trier par ville ici :</label>
+                <select class="form-select" [(ngModel)]= "hotelFilterVille" id="inputGroupSelect01">
+                  <option selected></option>
+                  <option>Yaoundé</option>
+                  <option>Douala</option>
+                </select>
+              </div>
+            </div>
+  
+            <div>
+              <div class="input-group mb-3 flex-lg-nowrap mx-xl-5">
+                <label class="input-group-text bg-info text-white" for="inputGroupSelect02">Trier par Type ici :</label>
+                <select class="form-select" [(ngModel)] = "hotelFilterType">
+                  <option selected></option>
+                  <option>Appartement</option>
+                  <option>Studio</option>
+                  <option>Chambre</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <div class="input-group mb-3 flex-lg-nowrap mx-xl-4">
+                <label class="input-group-text bg-info text-white" for="inputGroupSelect03">Trier par quartier ici :</label>
+                <select class="form-select" [(ngModel)] = "hotelFilterQuartier">
+                  <option selected></option>
+                  <option>Akwa</option>
+                  <option>Bonas</option>
+                  <option>Dakar</option>
+                  <option>Damas</option>
+                  <option>Emana</option>
+                  <option>Mendong</option>
+                  <option>Village</option>
+                  <option>New-bell</option>
+                  <option>Simbock</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- <div class="my-3">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="text-uppercase filter"> Filtre actuel: </span>
+          <b>{{ hotelFilter }} </b>
+        </div>
+        <div class="col-md-8 form-group">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="hotelFilter"
+            placeholder="rechercher"
+          />
+        </div>
+      </div>
+    </div> -->
+    <div class="alert alert-primary" *ngIf="!!receivedRating">
+      {{ receivedRating }}
+    </div>
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col mb-4" *ngFor="let hotel of filteredHotels">
+  
+          <div class="card">
+            <img
+              [src]="hotel.imageUrl" [routerLink]="['/logements', hotel.id]"
+              [title]="hotel.hotelName | uppercase"
+              [alt]="hotel.hotelName"
+              class="card-img-top pointer-event"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ hotel.hotelName | titlecase }}</h5>
+                  <!-- <p class="card-text">{{ hotel.price | currency: "EUR": "symbol": "1.2-2": "fr" | replaceComma }}</p> -->
+                  <p class="card-text"><b>{{ hotel.price }} FCFA</b></p> 
+                  <p class="card-text d-flex "><span class="material-icons">
+                    place</span>
+                    {{ hotel.cityName }}
+                </p>
+                  <p class="card-text">📍 {{ hotel.quartier | titlecase }}</p>
+                  <p class="card-text d-flex"><span class="material-icons">
+                    house
+                    </span>
+                    <span>{{ hotel.type | titlecase }}</span>
+                  </p>
+                  <p class="card-text d-flex">
+                    <span class="material-icons">
+                      king_bed
+                      </span>
+                    <span>{{ hotel.categorie | titlecase }}</span>
+                  </p>
+                  <p class="card-text">{{ hotel.description }}</p>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <app-star-rating
+                  [rating]="hotel.rating"
+                  (starRatingClicked)="receiveRatingClick($event)"
+                ></app-star-rating>
+                <span
+                  class="
+                    material-icons
+                    bg-info
+                    text-white
+                    p-2
+                    rounded-circle
+                    btn
+                  "
+                  [routerLink]="['/logements', hotel.id, 'edit']"
+                >
+                  edit
+                </span>
+                <span
+                  class="material-icons bg-success  text-white p-2 rounded-circle btn"
+                  [routerLink]="['/logements', hotel.id]"
+                >
+                  keyboard_arrow_right
+                </span>
+              </div>
+              <ng-container *ngFor="let tag of hotel.tags; let i = index">
+                <ng-container *ngIf="showBadge">
+                  <!-- [ngClass]="{'badge-success': 0 === i % 2 }" -->
+                  <span
+                    class="badge badge-pill"
+                    [ngClass]="0 === i % 2 ? 'badge-success': 'badge-info ml-2'"
+                  >
+                    {{ tag }}
+                  </span>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  

@@ -10,14 +10,19 @@
     </span>
   </div>
 
-  <div class="card">
-    <div class="card-header text-white bg-info">Créer un hotel</div>
+  <div>
+    <h2 class="bg-info text-white p-4 text-center"><b>{{pageTitle}}</b></h2>
+  </div>
 
+  <div class="card mt-5">
+    
     <div class="card-body">
       <form novalidate (ngSubmit)="saveHotel()" [formGroup]="hotelForm">
+        <div class="card-header text-white bg-secondary">Information sur le logement</div>
+        <br>
         <div class="form-group row mb-2">
           <label for="hotelNameId" class="col-md-2 col-form-label">
-            Nom Hotel
+            Nom Logement
           </label>
           <div class="col-md-8">
             <input
@@ -33,6 +38,7 @@
             </span>
           </div>
         </div>
+
         <div class="form-group row mb-2">
           <label for="hotelPriceId" class="col-md-2 col-form-label">
             Prix</label
@@ -51,6 +57,181 @@
             </span>
           </div>
         </div>
+
+        <div class="form-group row mb-2">
+          <label for="cityNameId" class="col-md-2 col-form-label">
+            Ville</label
+          >
+          <div class="col-md-8">
+            <select class="form-control" formControlName="cityName" aria-label="Default select example" [ngClass]="{ 'is-invalid': formErrors.cityName }">
+              <!-- <option selected>Yaounde</option> -->
+              <option value="">Sélectionner une ville</option>
+              <option value="Bafoussam">Bafoussam</option>
+              <option value="Bamenda">Bamenda</option>
+              <option value="Bangangte">Bangangte</option>
+              <option value="Bertoua">Bertoua</option>
+              <option value="Buea">Buea</option>
+              <option value="Douala">Douala</option>
+              <option value="Dschang">Dschang</option>
+              <option value="Ebolowa">Ebolowa</option>
+              <option value="Garoua">Garoua</option>
+              <option value="Maroua">Maroua</option>
+              <option value="Ngaoundere">Ngaoundere</option>
+              <option value="Soa">Soa</option>
+              <option value="Yaoundé">Yaoundé</option>
+            </select>
+            <!-- <input
+              id="hotelPriceId"
+              type="text"
+              class="form-control"
+              formControlName="price"
+              placeholder="Prix(obligatoire)"
+              [ngClass]="{ 'is-invalid': formErrors.price }"
+            /> -->
+            <span class="invalid-feedback">
+              {{ formErrors.cityName }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="quartierId" class="col-md-2 col-form-label">
+            Quartier</label
+          >
+          <div class="col-md-8">
+            <input
+              id="quartierId"
+              type="text"
+              class="form-control"
+              formControlName="quartier"
+              placeholder="Quartier(obligatoire)"
+              [ngClass]="{ 'is-invalid': formErrors.quartier }"
+            />
+            <span class="invalid-feedback">
+              {{ formErrors.hotelName }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="typeId" class="col-md-2 col-form-label">
+            Type</label
+          >
+          <div class="col-md-8">
+            <select class="form-control" formControlName="type" aria-label="Default select example">
+              <!-- <option selected>Appartement</option> -->
+              <option value="">Sélectionner un type de logement</option>
+              <option value="appartement">Appartement</option>
+              <option value="chambre">Chambre</option>
+              <option value="studio">Studio</option>
+            </select>
+            <span class="invalid-feedback">
+              {{ formErrors.type }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="categorieId" class="col-md-2 col-form-label">
+            Catégorie</label
+          >
+          <div class="col-md-8">
+            <select class="form-control" formControlName="categorie" aria-label="Default select example">
+              <!-- <option selected>Non meublés</option> -->
+              <option value="meublés">Meublés</option>
+              <option value="non meublés">Non meublés</option>
+            </select>
+            <span class="invalid-feedback">
+              {{ formErrors.categorie }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="formFile" class="col-md-2 col-form-label">
+            Image 1</label>
+          <div class="col-md-8">
+          <input
+           id="imageUrlId"
+           type="file"
+           class="form-control"
+           formControlName="imageUrl"
+           [ngClass]="{ 'is-invalid': formErrors.imageUrl }"
+           />
+           <span class="invalid-feedback">
+            {{ formErrors.imageUrl }}
+          </span>
+          </div>  
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="formFile" class="col-md-2 col-form-label">
+            Image 2</label>
+          <div class="col-md-8">
+          <input
+           id="imageUrl1Id"
+           type="file"
+           class="form-control"
+           formControlName="imageUrl1"
+           [ngClass]="{ 'is-invalid': formErrors.imageUrl1 }"
+           />
+           <span class="invalid-feedback">
+            {{ formErrors.imageUrl1 }}
+          </span>
+          </div>  
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="formFile" class="col-md-2 col-form-label">
+            Image 3</label>
+          <div class="col-md-8">
+          <input
+           id="imageUrl2Id"
+           type="file"
+           class="form-control"
+           formControlName="imageUrl2"
+           [ngClass]="{ 'is-invalid': formErrors.imageUrl2 }"
+           />
+           <span class="invalid-feedback">
+            {{ formErrors.imageUrl2 }}
+          </span>
+          </div>  
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="formFile" class="col-md-2 col-form-label">
+            Image 4</label>
+          <div class="col-md-8">
+          <input
+           id="imageUrl3Id"
+           type="file"
+           class="form-control"
+           formControlName="imageUrl3"
+           [ngClass]="{ 'is-invalid': formErrors.imageUrl3 }"
+           />
+           <span class="invalid-feedback">
+            {{ formErrors.imageUrl3 }}
+          </span>
+          </div>  
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="formFile" class="col-md-2 col-form-label">
+            Image 5</label>
+          <div class="col-md-8">
+          <input
+           id="imageUrl4Id"
+           type="file"
+           class="form-control"
+           formControlName="imageUrl4"
+           [ngClass]="{ 'is-invalid': formErrors.imageUrl4 }"
+           />
+           <span class="invalid-feedback">
+            {{ formErrors.imageUrl4 }}
+          </span>
+          </div>  
+        </div>
+
         <div class="form-group row mb-2">
           <label for="starRatingId" class="col-md-2 col-form-label">
             Évaluation (1-5)
@@ -113,17 +294,91 @@
         </div>
 
         <div class="form-group row mb-2">
-          <label for="descriptionId" class="col-md-2 col-form-label"
-            >Description
-          </label>
+          <label for="descriptionId" class="col-md-2 col-form-label">
+            Description</label
+          >
           <div class="col-md-8">
             <textarea
+              id="descriptionId"
+              type="text"
               class="form-control"
               formControlName="description"
-              id="descriptionId"
-            ></textarea>
+              placeholder="Quartier(obligatoire)"
+              [ngClass]="{ 'is-invalid': formErrors.quartier }" 
+            >
+            </textarea>
+            <span class="invalid-feedback">
+              {{ formErrors.desc }}
+            </span>
           </div>
         </div>
+
+        <div class="card-header text-white bg-secondary">Information sur le contact</div>
+          <br>
+            <div class="form-group row mb-2">
+              <label for="numberOneId" class="col-md-2 col-form-label">
+                Numéro d'appel 1
+              </label>
+              <div class="col-md-8">
+                <input
+                  id="numberOneId"
+                  type="text"
+                  class="form-control"
+                  formControlName = "numberOne"
+                  placeholder="Numéro 1 (obligatoire)"
+                  [ngClass]="{ 'is-invalid': formErrors.numero1 }"
+                />
+                <span class="invalid-feedback">
+                  {{ formErrors.numberOne }}
+                </span>
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="numberTwoId" class="col-md-2 col-form-label">
+                Numéro d'appel 2
+              </label>
+              <div class="col-md-8">
+                <input
+                  id="numberTwoId"
+                  type="text"
+                  class="form-control"
+                  formControlName = "numberTwo"
+                  placeholder="Numéro 2 (obligatoire)"
+                  [ngClass]="{ 'is-invalid': formErrors.numero2 }"
+                />
+                <span class="invalid-feedback">
+                  {{ formErrors.numberTwo }}
+                </span>
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="numerowhatsappOneId" class="col-md-2 col-form-label">
+                Numéro Whatsapp 1
+              </label>
+              <div class="col-md-8">
+                <input
+                  id="numerowhatsappOneId"
+                  type="text"
+                  class="form-control"
+                  formControlName="numerowhatsappOne"
+                  placeholder="Numéro Whatsapp 1"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="numerowhatsappTwoId" class="col-md-2 col-form-label">
+                Numéro Whatsapp 2
+              </label>
+              <div class="col-md-8">
+                <input
+                  id="numerowhatsappTwoId"
+                  type="text"
+                  class="form-control"
+                  formControlName="numerowhatsappTwo"
+                  placeholder="Numéro Whatsapp 2"
+                />
+              </div>
+            </div>
 
         <div class="form-group row mb-2">
           <div class="offset-md-2 col-md-8">
@@ -132,7 +387,7 @@
               class="btn btn-outline-secondary mr-3"
               type="button"
               title="Annuler les modifications"
-              [routerLink]="['/hotels']"
+              [routerLink]="['/logements']"
             >
               Annuler
             </button>
@@ -147,9 +402,32 @@
             </button>
           </div>
         </div>
-      </form>
+  </form>
+</div>
+</div>
+
+  <!-- <div class="form-group row mt-3">
+    <div class="offset-md-2 col-md-8">
+      <button class="btn btn-info mr-3" type="submit">Sauvegarder</button>
+      <button
+        class="btn btn-outline-secondary mr-3"
+        type="button"
+        title="Annuler les modifications"
+        [routerLink]="['/logements']"
+      >
+        Annuler
+      </button>
+      <button
+        class="btn btn-outline-danger"
+        type="button"
+        title="Supprimer cet hotel"
+        [disabled]="hotel?.id === 0"
+        (click)="deleteHotel()"
+      >
+        Supprimer
+      </button>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <pre>

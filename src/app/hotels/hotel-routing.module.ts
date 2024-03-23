@@ -6,21 +6,35 @@ import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { HotelEditGuard } from './shared/guards/hotel-edit.guard';
+import { HotelListMeublesComponent } from './hotel-list-meubles/hotel-list-meubles.component';
+import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-list-non-meubles.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
-        path: 'hotels/:id',
+        path: 'logements/:id',
         component: HotelDetailsComponent,
         canActivate: [HotelDetailsGuard]
       },
       {
-        path: 'hotels',
+        path: 'logements',
         component: HotelListComponent
       },
       {
-        path: 'hotels/:id/edit',
+        path: 'logements',
+        component: HotelListComponent
+      },
+      {
+        path: 'logements_meublés',
+        component: HotelListMeublesComponent
+      },
+      {
+        path: 'logements_non_meublés',
+        component: HotelListNonMeublesComponent
+      },
+      {
+        path: 'logements/:id/edit',
         component: HotelEditComponent,
         canDeactivate: [HotelEditGuard]
       }

@@ -11,13 +11,18 @@ import { SharedModule } from '../shared/shared.module';
 import { HotelRoutingModule } from './hotel-routing.module';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { HotelData } from './shared/api/hotel.data';
+import { HotelListMeublesComponent } from './hotel-list-meubles/hotel-list-meubles.component';
+import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-list-non-meubles.component';
+
 
 @NgModule({
   declarations: [
     HotelListComponent,
     HotelDetailsComponent,
     RemoveCommaPipe,
-    HotelEditComponent
+    HotelEditComponent,
+    HotelListMeublesComponent,
+    HotelListNonMeublesComponent
   ],
   imports: [
     FormsModule,

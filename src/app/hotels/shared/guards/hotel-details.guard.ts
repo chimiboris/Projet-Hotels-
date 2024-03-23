@@ -17,7 +17,7 @@ export class HotelDetailsGuard implements CanActivate {
 
     if (isNaN(id) || id <= 0) {
 
-      alert('Hotel et id inconnus');
+      alert('Hotel et identifiant inconnus');
 
       this.router.navigate(['/hotels']);
       return false;
