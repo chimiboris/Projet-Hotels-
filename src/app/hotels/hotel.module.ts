@@ -14,6 +14,8 @@ import { HotelData } from './shared/api/hotel.data';
 import { HotelListMeublesComponent } from './hotel-list-meubles/hotel-list-meubles.component';
 import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-list-non-meubles.component';
 import { MapiolconceptComponent } from './mapiolconcept/mapiolconcept.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { UtilisateurData } from './shared/api/utilisateur.data';
 
 
 @NgModule({
@@ -24,14 +26,16 @@ import { MapiolconceptComponent } from './mapiolconcept/mapiolconcept.component'
     HotelEditComponent,
     HotelListMeublesComponent,
     HotelListNonMeublesComponent,
-    MapiolconceptComponent
+    MapiolconceptComponent,
+    RegistrationComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
     HotelRoutingModule,
-    InMemoryWebApiModule.forFeature(HotelData)
+    InMemoryWebApiModule.forFeature(HotelData),
+    InMemoryWebApiModule.forFeature(UtilisateurData)
   ]
 })
 export class HotelModule { }

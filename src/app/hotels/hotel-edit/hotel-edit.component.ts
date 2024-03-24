@@ -173,46 +173,50 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
       ],
       numerowhatsappOne: [''],
       numerowhatsappTwo: [''],
-      imageUrl: [
-        '',
-        [
-          Validators.required,
-          //Validators.minLength(3),
-          //Validators.maxLength(50)
-        ]
-      ],
-      imageUrl1: [
-        '',
-        [
-          Validators.required,
-          //Validators.minLength(3),
-          //Validators.maxLength(50)
-        ]
-      ],
-      imageUrl2: [
-        '',
-        [
-          Validators.required,
-          //Validators.minLength(3),
-          //Validators.maxLength(50)
-        ]
-      ],
-      imageUrl3: [
-        '',
-        [
-          Validators.required,
-          //Validators.minLength(3),
-          //Validators.maxLength(50)
-        ]
-      ],
-      imageUrl4: [
-        '',
-        [
-          Validators.required,
-          //Validators.minLength(3),
-          //Validators.maxLength(50)
-        ]
-      ],
+      // imageUrl: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(3),
+      //     //Validators.maxLength(50)
+      //   ]
+      // ],
+      // imageUrl1: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(3),
+      //     //Validators.maxLength(50)
+      //   ]
+      // ],
+      // imageUrl2: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(3),
+      //     //Validators.maxLength(50)
+      //   ]
+      // ],
+      // imageUrl3: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(3),
+      //     //Validators.maxLength(50)
+      //   ]
+      // ],
+      // imageUrl4: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(3),
+      //     //Validators.maxLength(50)
+      //   ]
+      imageUrl: [''],
+      imageUrl1: [''],
+      imageUrl2: [''],
+      imageUrl3: [''],
+      imageUrl4: [''],
       rating: ['', NumberValidators.range(1, 5)],
       tags: this.fb.array([]),
       description: ['', Validators.required]
@@ -226,6 +230,20 @@ export class HotelEditComponent implements OnInit, AfterViewInit {
     })
     
   }
+
+  handleImageInputChange(event: any, controlName: string): void {
+    const files = event.target.files;
+    if (files.length > 0) {
+      this.hotelForm.get(controlName)?.setValue(files[0]);
+    }
+  }
+
+  // handleImageInputChange(event: any, controlName: string): void {
+  //   const files = event.target.files;
+  //   if (files.length > 0) {
+  //     this.hotelForm.get(controlName)?.setValue(files[0]);
+  //   }
+  // }
 
   
   ngAfterViewInit() {

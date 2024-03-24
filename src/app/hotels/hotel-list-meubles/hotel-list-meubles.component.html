@@ -83,12 +83,16 @@
       <div class="col mb-4" *ngFor="let hotel of filteredHotels">
   
           <div class="card">
-            <img
+            <img [src]="hotel.get('imageUrl').value ? hotel.get('imageUrl').value : 
+            '/assets/img/hotel-room.jpg'" [title]="hotel.hotelName | uppercase"
+              [alt]="hotel.hotelName" class="img-fluid pointer-event" />
+
+            <!-- <img
               [src]="hotel.imageUrl" [routerLink]="['/logements', hotel.id]"
               [title]="hotel.hotelName | uppercase"
               [alt]="hotel.hotelName"
               class="card-img-top pointer-event"
-            />
+            /> -->
             <div class="card-body">
               <h5 class="card-title">{{ hotel.hotelName | titlecase }}</h5>
                   <!-- <p class="card-text">{{ hotel.price | currency: "EUR": "symbol": "1.2-2": "fr" | replaceComma }}</p> -->

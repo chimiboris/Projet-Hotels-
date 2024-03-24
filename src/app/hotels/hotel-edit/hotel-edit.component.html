@@ -64,7 +64,6 @@
           >
           <div class="col-md-8">
             <select class="form-control" formControlName="cityName" aria-label="Default select example" [ngClass]="{ 'is-invalid': formErrors.cityName }">
-              <!-- <option selected>Yaounde</option> -->
               <option value="">Sélectionner une ville</option>
               <option value="Bafoussam">Bafoussam</option>
               <option value="Bamenda">Bamenda</option>
@@ -80,14 +79,6 @@
               <option value="Soa">Soa</option>
               <option value="Yaoundé">Yaoundé</option>
             </select>
-            <!-- <input
-              id="hotelPriceId"
-              type="text"
-              class="form-control"
-              formControlName="price"
-              placeholder="Prix(obligatoire)"
-              [ngClass]="{ 'is-invalid': formErrors.price }"
-            /> -->
             <span class="invalid-feedback">
               {{ formErrors.cityName }}
             </span>
@@ -119,7 +110,6 @@
           >
           <div class="col-md-8">
             <select class="form-control" formControlName="type" aria-label="Default select example">
-              <!-- <option selected>Appartement</option> -->
               <option value="">Sélectionner un type de logement</option>
               <option value="appartement">Appartement</option>
               <option value="chambre">Chambre</option>
@@ -137,7 +127,6 @@
           >
           <div class="col-md-8">
             <select class="form-control" formControlName="categorie" aria-label="Default select example">
-              <!-- <option selected>Non meublés</option> -->
               <option value="meublés">Meublés</option>
               <option value="non meublés">Non meublés</option>
             </select>
@@ -155,7 +144,8 @@
            id="imageUrlId"
            type="file"
            class="form-control"
-           formControlName="imageUrl"
+           (change)="handleImageInputChange($event, 'imageUrl')"
+           
            [ngClass]="{ 'is-invalid': formErrors.imageUrl }"
            />
            <span class="invalid-feedback">
@@ -172,7 +162,7 @@
            id="imageUrl1Id"
            type="file"
            class="form-control"
-           formControlName="imageUrl1"
+           (change)="handleImageInputChange($event, 'imageUrl1')"
            [ngClass]="{ 'is-invalid': formErrors.imageUrl1 }"
            />
            <span class="invalid-feedback">
@@ -189,7 +179,7 @@
            id="imageUrl2Id"
            type="file"
            class="form-control"
-           formControlName="imageUrl2"
+           (change)="handleImageInputChange($event, 'imageUrl2')"
            [ngClass]="{ 'is-invalid': formErrors.imageUrl2 }"
            />
            <span class="invalid-feedback">
@@ -206,7 +196,7 @@
            id="imageUrl3Id"
            type="file"
            class="form-control"
-           formControlName="imageUrl3"
+           (change)="handleImageInputChange($event, 'imageUrl3')"
            [ngClass]="{ 'is-invalid': formErrors.imageUrl3 }"
            />
            <span class="invalid-feedback">
@@ -223,7 +213,7 @@
            id="imageUrl4Id"
            type="file"
            class="form-control"
-           formControlName="imageUrl4"
+           (change)="handleImageInputChange($event, 'imageUrl4')"
            [ngClass]="{ 'is-invalid': formErrors.imageUrl4 }"
            />
            <span class="invalid-feedback">

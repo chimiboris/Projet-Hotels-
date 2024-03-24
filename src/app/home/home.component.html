@@ -6,13 +6,13 @@
             <form class="overlay-form bg-light ">
                 <div class="card-header text-black text-center "><h2><b>Chercher un logement en fonction de vos préférences</b></h2></div>
                 <br>
-                <div class="text-center ">Trouvez un logement en fonction des catégories, et par la suite en fonction de votre choix de ville, 
+                <div class="text-center text-justify">Trouvez un logement en fonction des catégories, et par la suite en fonction de votre choix de ville, 
                     de quartier et de type de logement !</div>
                     <br>
-                <div class="card-footer  d-flex justify-content-between ">
+                <div class="card-footer  d-flex justify-content-between rounded-3 ">
                 
                     <a
-                        class="nav-link bg-info text-white rounded-circle p-3"
+                        class="nav-link text-white btn btn-info  p-2"
                         [routerLink]="['/logements_meublés']"
                         [routerLinkActive]="['active']"
                         [routerLinkActiveOptions]="{ exact: true }"
@@ -21,7 +21,7 @@
                     </a>
                         
                     <a
-                        class="nav-link bg-info text-white rounded-circle p-3"
+                        class="nav-link text-white btn btn-info p-2"
                         [routerLink]="['/logements_non_meublés']"
                         [routerLinkActive]="['active']"
                         [routerLinkActiveOptions]="{ exact: true }"
@@ -35,13 +35,13 @@
     
     <section class="two row p-3 ">
         <div class="col-md-6">
-            <h2 class="text-center "><b>Comment trouver un logement qui rempli tous les critères 
+            <h2 class="text-center text-justify"><b>Comment trouver un logement qui rempli tous les critères 
                 de vos besoins sur MA Piol ?</b></h2>
                 <ol>
-                    <li>Je recherche mon logement en fonction de la catégorie (meublés ou non meublés), 
+                    <li class="text-justify">Je recherche mon logement en fonction de la catégorie (meublés ou non meublés), 
                         puis en fonction des villes, des quartier et des type de logements (appartements, chambres ou studios)</li>
-                    <li>J'entre en contact avec le proriétaire du logement</li>
-                    <li>J'obtiens mon logement</li>
+                    <li class="text-justify">J'entre en contact avec le proriétaire du logement</li>
+                    <li class="text-justify">J'obtiens mon logement</li>
                 </ol>
         </div>
         <div class="col-md-6 mt-2 h-75 ">
