@@ -1,0 +1,66 @@
+/* CSS */
+.menu-toggle {
+    display: none; /* Cacher le menu hamburger par défaut */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block; /* Afficher le menu hamburger sur les écrans de petite taille */
+    }
+    .menu {
+      display: none; /* Cacher le menu principal par défaut sur les écrans de petite taille */
+    }
+    .menu.active {
+      display: block; /* Afficher le menu principal lorsque le menu hamburger est activé */
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #333; /* Couleur des barres du menu hamburger */
+      margin: 5px 0; /* Espacement entre les barres */
+    }
+  }
+  
+  
+  
+
+
+/* footer{
+    background-color: #323232;
+}
+
+
+  
+.lien-footer{
+    color: #fff; 
+    transition: color 0.3s ease; 
+    
+}
+.lien-footer:hover {
+    color: rgba(8, 142, 252, 0.993); 
+}
+.icone {
+    color: #fff; 
+    transition: color 0.3s ease; 
+    font-size: 20px;
+  }
+  
+  .icone:hover {
+    color: rgba(8, 142, 252, 0.993); 
+  }
+
+.body{
+border-top: 2px solid rgb(97, 95, 95);
+
+}
+
+.fa-bed-front{
+    color: black;
+    font-size: 20px;
+  }
+
+  .header{
+    border-bottom: 1px solid #fff;
+  }
+
+   */

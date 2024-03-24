@@ -1,28 +1,6 @@
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aspect Sombre</title>
-
-</head>
-<body>
-
-<div class="image-sombre">
-  <img src="/assets/img/pexels-10.jpg" alt="Votre Image">
-  <div class="overlay"></div>
-</div>
-
-<div class="div-sombre">
-  <p>Votre contenu ici</p>
-</div>
-
-</body>
-</html> -->
 
 
-<div class="container bg-light my-3 ">
+<div class="container-fluid  bg-light my-3 ">
     <section class="one mb-5">
         <div class="image-container">
             <form class="overlay-form bg-light ">
@@ -55,7 +33,7 @@
         </div>
     </section>
     
-    <section class="two row mt-3 pt-5">
+    <section class="two row p-3 ">
         <div class="col-md-6">
             <h2 class="text-center "><b>Comment trouver un logement qui rempli tous les critères 
                 de vos besoins sur MA Piol ?</b></h2>
@@ -66,59 +44,63 @@
                     <li>J'obtiens mon logement</li>
                 </ol>
         </div>
-        <div class="col-md-6 mt-4">
+        <div class="col-md-6 mt-2 h-75 ">
             <img class="img-fluid " src="/assets/img/pexels-5.jpg"/>
         </div>
     </section>
 
-    <section class="three mt-5">
+    <section class="three py-4">
         <h2 class="text-center bg-info p-3 text-white "><b>Trouver votre logement maintenant !</b></h2>
         <br>
-        <div class="d-flex px-2 ">
-            <div class="col-md-6 container1">
+            
+        <div class="row">
+            <div class="col-md-6">
                 <a
                         class="nav-link non-meubles"
                         [routerLink]="['/logements_non_meublés']"
                         [routerLinkActive]="['active']"
                         [routerLinkActiveOptions]="{ exact: true }"
-                    >
-                    <div class="sombre">
-                        <img class="img-fluid" src="/assets/img/pexels-10.jpg"/>
-                    </div>
-                        
-                    <div class="text-initial sombre">
-                        <h2 class="text-center ">Non</h2>
-                        <h2 class="text-center">meublés</h2>
-                    </div>
-                    <div class="text-alternatif">
-                        <h2 class="text-center texte">Consulter</h2>
-                    </div>
+                > 
                     
-                </a>            
-            </div>        
-            <div class="col-md-6 container1">
+                        <div class="container1">    
+                            <img class="img-fluid img" src="/assets/img/pexels-10.jpg"/>
+                            <div class="text-initial">
+                                <h2 class="text-center "><b>Non</b></h2>
+                                <h2 class="text-center"><b>meublés</b></h2>
+                            </div>
+                            <div class="text-alternatif">
+                                <h2 class="text-center texte"><b>Consulter</b></h2>
+                            </div> 
+                        </div>
+                </a> 
+            </div>
+            
+            <div class="col-md-6">
                 <a
                         class="nav-link meubles"
                         [routerLink]="['/logements_meublés']"
                         [routerLinkActive]="['active']"
                         [routerLinkActiveOptions]="{ exact: true }"
-                    >
-                    <div class="sombre">
-                        <img class="img-fluid" src="/assets/img/pexels-3.jpg"/>
-                    </div>
-                        
-                    <div class="text-initial sombre">
-                        <h2 class="text-center">Meublés</h2>
-                    </div>
-                    <div class="text-alternatif">
-                        <h2 class="text-center texte">Consulter</h2>
-                    </div>
-                    </a>
+                > 
+                    
+                    <div class="container1">
+                        <img class="img-fluid img" src="/assets/img/pexels-3.jpg"/>
+                        <div class="text-initial">
+                            <h2 class="text-center"><b>Meublés</b></h2>
+                        </div>
+                        <div class="text-alternatif">
+                            <h2 class="text-center texte"><b>Consulter</b></h2>
+                        </div> 
+                    </div>    
+                </a> 
             </div>
+            
+                
         </div>
+                
     </section>
     
-  </div>
+</div>
  
 
  

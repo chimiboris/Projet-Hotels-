@@ -8,4 +8,32 @@ a {
     }
   }
 
+  footer{
+    margin-top: auto;
+    bottom: 0;
+  }
   
+  .dropdown:hover .dropdown-menu{
+    opacity: 1;
+  }
+  .dropdown-menu{
+      display: none; /* Masquer le sous-menu par défaut */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: -5px;
+  }
+  .dropdown-menu :hover{
+    background-color: #17a2b8!important;
+    color: #fff;
+    border-radius: 15px;
+  }
+  ul{
+    list-style-type: none;
+  }

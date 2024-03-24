@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HotelModule } from './hotels/hotel.module';
 import { AppRoutingModule } from './app-routing.module';
+import { FooterComponent } from './footer/footer.component';
+
 
 registerLocaleData(localeFr, 'fr');
 
@@ -16,6 +18,7 @@ registerLocaleData(localeFr, 'fr');
   declarations: [
     AppComponent,
     HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
