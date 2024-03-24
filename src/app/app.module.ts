@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { HotelModule } from './hotels/hotel.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
+import { MapiolconceptComponent } from './hotels/mapiolconcept/mapiolconcept.component';
 
 
 registerLocaleData(localeFr, 'fr');

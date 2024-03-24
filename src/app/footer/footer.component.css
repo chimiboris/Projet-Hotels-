@@ -1,32 +1,9 @@
-/* CSS */
-.menu-toggle {
-    display: none; /* Cacher le menu hamburger par défaut */
-  }
-  
-  @media screen and (max-width: 768px) {
-    .menu-toggle {
-      display: block; /* Afficher le menu hamburger sur les écrans de petite taille */
-    }
-    .menu {
-      display: none; /* Cacher le menu principal par défaut sur les écrans de petite taille */
-    }
-    .menu.active {
-      display: block; /* Afficher le menu principal lorsque le menu hamburger est activé */
-    }
-    .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #333; /* Couleur des barres du menu hamburger */
-      margin: 5px 0; /* Espacement entre les barres */
-    }
-  }
-  
-  
+
   
 
-
-/* footer{
+footer{
     background-color: #323232;
+    
 }
 
 
@@ -63,4 +40,4 @@ border-top: 2px solid rgb(97, 95, 95);
     border-bottom: 1px solid #fff;
   }
 
-   */
+  

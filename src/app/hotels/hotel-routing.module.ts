@@ -8,6 +8,7 @@ import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { HotelEditGuard } from './shared/guards/hotel-edit.guard';
 import { HotelListMeublesComponent } from './hotel-list-meubles/hotel-list-meubles.component';
 import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-list-non-meubles.component';
+import { MapiolconceptComponent } from './mapiolconcept/mapiolconcept.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,10 @@ import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-lis
         path: 'logements/:id/edit',
         component: HotelEditComponent,
         canDeactivate: [HotelEditGuard]
+      },
+      {
+        path: 'le-concept-ma-piol',
+        component: MapiolconceptComponent
       }
     ]),
   ],

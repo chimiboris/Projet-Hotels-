@@ -21,7 +21,7 @@
   
   .overlay-form {
     position: relative;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -20%);
     border-radius: 40px;
@@ -107,13 +107,11 @@
     background-color: rgba(0, 0, 0, 0.5); 
   } */
   
-  img{
+  .img{
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0.7;  
   }
-  .img{
-    
-  }
+  
   img:hover{
     opacity: 1;
   }

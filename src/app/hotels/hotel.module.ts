@@ -13,6 +13,7 @@ import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { HotelData } from './shared/api/hotel.data';
 import { HotelListMeublesComponent } from './hotel-list-meubles/hotel-list-meubles.component';
 import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-list-non-meubles.component';
+import { MapiolconceptComponent } from './mapiolconcept/mapiolconcept.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HotelListNonMeublesComponent } from './hotel-list-non-meubles/hotel-lis
     RemoveCommaPipe,
     HotelEditComponent,
     HotelListMeublesComponent,
-    HotelListNonMeublesComponent
+    HotelListNonMeublesComponent,
+    MapiolconceptComponent
   ],
   imports: [
     FormsModule,
